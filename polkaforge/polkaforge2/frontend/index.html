@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolkaForge - Decentralized GitHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fab fa-github"></i>
+                <span>PolkaForge</span>
+            </div>
+            <nav class="nav">
+                <button id="connectWallet" class="btn btn-primary">
+                    <i class="fas fa-wallet"></i> Connect Talisman
+                </button>
+                <div id="walletInfo" class="wallet-info hidden">
+                    <span id="walletAddress"></span>
+                    <button id="disconnectWallet" class="btn btn-secondary">Disconnect</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section id="welcomeSection" class="welcome-section">
+                <h1>Welcome to PolkaForge</h1>
+                <p>The decentralized GitHub alternative built on Polkadot ecosystem</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Decentralized Storage</h3>
+                        <p>Store your code on IPFS with blockchain verification</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>NFT Proof of Authorship</h3>
+                        <p>Mint NFTs for every code push as proof of ownership</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-coins"></i>
+                        <h3>DOT Rewards</h3>
+                        <p>Get rewarded for your contributions to open source</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard -->
+            <section id="dashboardSection" class="dashboard hidden">
+                <!-- Repository Actions -->
+                <div class="actions-bar">
+                    <button id="createRepoBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create Repository
+                    </button>
+                    <button id="searchBtn" class="btn btn-secondary">
+                        <i class="fas fa-search"></i> Search Repos
+                    </button>
+                    <button id="chatbotBtn" class="btn btn-accent">
+                        <i class="fas fa-robot"></i> AI Assistant
+                    </button>
+                </div>
+
+                <!-- Search Bar -->
+                <div id="searchBar" class="search-container hidden">
+                    <input type="text" id="searchInput" placeholder="Search repositories by name, description, or author...">
+                    <button id="performSearch" class="btn btn-primary">Search</button>
+                </div>
+
+                <!-- Repository List -->
+                <div class="repos-container">
+                    <h2>Your Repositories</h2>
+                    <div id="userRepos" class="repos-grid"></div>
+                    
+                    <h2>Discover Repositories</h2>
+                    <div id="allRepos" class="repos-grid"></div>
+                </div>
+            </section>
+
+            <!-- Repository View -->
+            <section id="repoViewSection" class="repo-view hidden">
+                <div class="repo-header">
+                    <button id="backToRepos" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to Repositories
+                    </button>
+                    <div class="repo-info">
+                        <h2 id="repoTitle"></h2>
+                        <p id="repoDescription"></p>
+                        <div class="repo-meta">
+                            <span id="repoAuthor"></span>
+                            <span id="repoStars">⭐ 0</span>
+                            <span id="repoCreated"></span>
+                        </div>
+                    </div>
+                    <div class="repo-actions">
+                        <button id="starRepo" class="btn btn-accent">
+                            <i class="fas fa-star"></i> Star
+                        </button>
+                        <button id="forkRepo" class="btn btn-primary">
+                            <i class="fas fa-code-branch"></i> Fork
+                        </button>
+                        <button id="cloneRepo" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Clone
+                        </button>
+                        <button id="addFileBtn" class="btn btn-success">
+                            <i class="fas fa-plus"></i> Add File
+                        </button>
+                    </div>
+                </div>
+
+                <!-- File Browser -->
+                <div class="file-browser">
+                    <div class="file-header">
+                        <h3>Files</h3>
+                        <button id="pushChanges" class="btn btn-primary">
+                            <i class="fas fa-upload"></i> Push Changes
+                        </button>
+                    </div>
+                    <div id="fileList" class="file-list"></div>
+                </div>
+
+                <!-- File Editor -->
+                <div id="fileEditor" class="file-editor hidden">
+                    <div class="editor-header">
+                        <input type="text" id="fileName" placeholder="filename.js">
+                        <button id="saveFile" class="btn btn-success">Save</button>
+                        <button id="cancelEdit" class="btn btn-secondary">Cancel</button>
+                    </div>
+                    <textarea id="fileContent" placeholder="Enter your code here..."></textarea>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Create Repository Modal -->
+    <div id="createRepoModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Repository</h3>
+                <button id="closeCreateModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="repoName" placeholder="Repository name" required>
+                <textarea id="repoDesc" placeholder="Repository description (optional)"></textarea>
+                <label>
+                    <input type="checkbox" id="isPrivate"> Private Repository
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button id="confirmCreateRepo" class="btn btn-primary">Create Repository</button>
+                <button id="cancelCreateRepo" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Modal -->
+    <div id="chatbotModal" class="modal hidden">
+        <div class="modal-content chatbot-modal">
+            <div class="modal-header">
+                <h3>AI Assistant</h3>
+                <button id="closeChatModal" class="close-btn">&times;</button>
+            </div>
+            <div class="chatbot-body">
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask me anything about PolkaForge...">
+                    <button id="sendMessage" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notifications" class="notifications"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Processing transaction...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="wallet.js"></script>
+    <script src="ipfs.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
