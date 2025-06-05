@@ -4,8 +4,6 @@
 
 **PolkaForge** is our vision to revolutionize how developers collaborate in the decentralized world.
 
-
-
 ## Our Tech Stack Journey
 
 We carefully selected each technology like crafting the perfect recipe:
@@ -34,8 +32,6 @@ We carefully selected each technology like crafting the perfect recipe:
   * ESLint & Prettier – Code quality and formatting
   * Git – Version control for team synchronization
 
-
-
 ## How the Polkadot Ecosystem Powers Our Vision
 
 Polkadot is a digital universe where multiple blockchains communicate seamlessly. PolkaForge is the **GitHub of this universe**.
@@ -53,7 +49,6 @@ Polkadot is a digital universe where multiple blockchains communicate seamlessly
 * **Cross-Chain Messaging (XCM):**
 
   * Enables parachains to communicate and transfer assets
-
 
 
 ## How PolkaForge Fits In
@@ -80,7 +75,6 @@ Polkadot is a digital universe where multiple blockchains communicate seamlessly
   * Interact with any Polkadot parachain
   * Deploy smart contracts across chains via one interface
   * Future-proof developer workflows
-
 
 
 ## Our Project’s Heart and Soul
