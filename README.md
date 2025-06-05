@@ -51,6 +51,16 @@ Polkadot is a digital universe where multiple blockchains communicate seamlessly
   * Enables parachains to communicate and transfer assets
 
 
+# Why PolkaForge is a True Blockchain Project
+
+- **Proof of Ownership on Chain:** Each repository automatically mints an NFT on Polkadot’s Asset Hub, providing secure, verifiable authorship.
+- **Decentralized Code Storage:** Your code lives on IPFS, ensuring it’s distributed, censorship-resistant, and always accessible.
+- **Token-Driven Incentives:** Developers earn DOT tokens for their contributions, enabling fair and transparent compensation.
+- **Cross-Chain Interaction:** Built on Polkadot’s XCM protocol, allowing projects to seamlessly communicate across multiple blockchains.
+- **Secure Wallet Integration:** Supports popular wallets like Polkadot.js, Talisman, and SubWallet for easy and safe access.
+- **Committed to Openness:** By leveraging decentralized infrastructure, PolkaForge ensures code and collaboration remain free from centralized control.
+
+
 ## How PolkaForge Fits In
 
 * **Decentralized Code Storage:**
