@@ -133,9 +133,9 @@ Polkadot is a digital universe where multiple blockchains communicate seamlessly
 
 
 
-### Hashtags
+
 
 \#DecentralizedDevelopment #Blockchain #Polkadot #IPFS #NFT #Web3 #OpenSource #DeveloperTools #CrossChain #CryptoEconomy #CodeOwnership
 
 
-Would you like me to help format this for a website, blog, or pitch deck?
+
